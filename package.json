@@ -1,0 +1,29 @@
+{
+  "name": "ts-binary-adder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "mdx-deck src/index.js",
+    "build": "mdx-deck build src/index.js",
+    "pdf": "mdx-deck pdf src/index.js",
+    "screenshot": "mdx-deck screenshot src/index.js",
+    "build:all": "rimraf dist && yarn build && yarn pdf && yarn screenshot",
+    "deploy": "yarn build:all && tar -cvf ./deploy.tar --exclude='*.map' ./captain-definition ./dist/* && npx caprover deploy -t ./deploy.tar"
+  },
+  "keywords": [],
+  "author": "Etienne Dldc <e.deladonchamps@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "mdx-deck": "^1.10.0",
+    "react-syntax-highlighter": "^10.1.3"
+  },
+  "dependencies": {
+    "mdx-deck-code-surfer": "^0.5.5",
+    "preloader": "^4.0.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "styled-components": "^4.1.3"
+  }
+}
