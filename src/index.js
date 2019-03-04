@@ -13,7 +13,11 @@ if (global.window) {
     xhrImages: false,
   });
 
-  // loader.add(imgDevtool3);
+  loader.add(require('./images/brut-force.png'));
+  loader.add(require('./images/binary-add.jpg'));
+  loader.add(require('./images/full_adder.jpg'));
+  loader.add(require('./images/result-bin.png'));
+  loader.add(require('./images/result-deci.png'));
 
   loader.load();
 }
