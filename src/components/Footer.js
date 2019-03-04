@@ -51,10 +51,10 @@ const Footer = () => {
     <Bottom>
       <Flex alignItems="center" p={2} pl={3} pr={3}>
         <Side>
-          <Link mr={2} color="text" href="https://overmind-talk.etienne.tech">
-            overmind-talk.etienne.tech
+          <Link mr={2} color="text" href="https://ts-binary-adder.etienne.tech">
+            ts-binary-adder.etienne.tech
           </Link>
-          <Link mr={2} color="text" href="https://github.com/etienne-dldc/overmind-introduction">
+          <Link mr={2} color="text" href="https://github.com/etienne-dldc/ts-binary-adder">
             (source)
           </Link>
         </Side>
@@ -66,7 +66,7 @@ const Footer = () => {
           onClick={index => deckState.update({ index })}
         />
         <Side justifyContent="flex-end">
-          <Link mr={2} color="text" href="https://overmind-talk.etienne.tech/presentation.pdf">
+          <Link mr={2} color="text" href="https://ts-binary-adder.etienne.tech/presentation.pdf">
             Download as PDF
           </Link>
         </Side>
