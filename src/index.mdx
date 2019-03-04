@@ -1,10 +1,11 @@
-import { Head, Notes } from 'mdx-deck';
-// import Quote from './components/Quote';
+import { Head, Notes, Code as MdxCode } from 'mdx-deck';
+import Quote from './components/Quote';
 import Appear from './components/Appear';
-// import Steps from './components/Steps';
+import Steps from './components/Steps';
+import Table from './components/Table';
 // import Soon from './components/Soon';
-// import Image from './components/Image';
-// import CodeSurfer from './components/CodeSurfer';
+import Image from './components/Image';
+import CodeSurfer from './components/CodeSurfer';
 import { Text, Title, SubTitle, Code, Link, Button } from './components/Typo';
 // import Arrow from './components/Arrow';
 import PrezLink, { HttpsPart } from './components/PrezLink';
@@ -34,9 +35,316 @@ import PrezLink, { HttpsPart } from './components/PrezLink';
 
 ---
 
+<Title>Binary what ?</Title>
+
+<Appear>
+  <Quote>An adder is a digital circuit that performs addition of numbers.</Quote>
+  <Text>Yes, we are just trying to add two numbers...</Text>
+  <Text>👆But...</Text>
+</Appear>
+
+---
+
+<Title>...Using TypeScript only !</Title>
+
+<Appear>
+  <Text>
+    Note: <b>TypeScript</b> actually mean <b>TypeScript type system</b> here.
+  </Text>
+</Appear>
+
+---
+
+<Title>Numbers</Title>
+
+<Appear>
+  <div>
+    <MdxCode className="language-typescript">{[`// JavaScript has numbers...`, `const num = 3;`].join('\n')}</MdxCode>
+  </div>
+  <div>
+    <MdxCode className="language-typescript">
+      {[
+        `// ... TypeScript too`,
+        `type Num = 3;`,
+        `let tree: Num = 3; // ok`,
+        `tree = 4;`,
+        `// ^ Type '4' is not assignable to type '3' - ts(2322)`,
+      ].join('\n')}
+    </MdxCode>
+  </div>
+</Appear>
+
+---
+
+<Title>The + operator</Title>
+
+<Appear>
+  <div>
+    <MdxCode className="language-typescript">
+      {[`// JavaScript has a + operator...`, `const result = 3 + 4;`].join('\n')}
+    </MdxCode>
+  </div>
+  <div>
+    <MdxCode className="language-typescript">
+      {[
+        `// ...but TypeScript does not !`,
+        `type Result = 3 + 4;`,
+        `//              ^ Error: ';' expected - ts(1005)`,
+      ].join('\n')}
+    </MdxCode>
+  </div>
+</Appear>
+
+---
+
+<Title>Our Goal 🥅</Title>
+
+<Appear>
+  <div>
+    <MdxCode className="language-typescript">{`type Result = Add<120, 42>;`}</MdxCode>
+  </div>
+  <Text>To be the same as:</Text>
+  <div>
+    <MdxCode className="language-typescript">{`type Result = 162;`}</MdxCode>
+  </div>
+  <Text>Easy right ? 🙄</Text>
+</Appear>
+
+---
+
+<CodeSurfer
+  title={() => <Title>First try: Brut-force 💪</Title>}
+  code={require('!raw-loader!./code-samples/brut-force.ts')}
+  lang="typescript"
+  showNumbers={false}
+  dark={true}
+  steps={[{}]}
+/>
+
+---
+
+<Title>Yay \o/</Title>
+
+<Image src={require('./images/brut-force.png')} />
+
+---
+
+<Title>But...</Title>
+
+<Appear>
+  <Text>To add numbers from 0 to X</Text>
+  <Text>
+    We need to register X<sup>2</sup> cases
+  </Text>
+  <Text>
+    For numbers up to <b>100</b>...
+  </Text>
+  <Text>
+    ...that's <b>10 000</b> lines
+  </Text>
+  <Text>We can do better !</Text>
+</Appear>
+
+---
+
+<Title>Binary to the rescue !</Title>
+
+<Appear>
+  <Text>Processor don't have a + operator either !</Text>
+  <Text>
+    they use electric flow and logic gates like <b>OR</b>, <b>AND</b> and <b>XOR</b>
+  </Text>
+  <Text>
+    TypeScript has logic using <b>ternary</b> and <b>extends</b>
+  </Text>
+  <Text>
+    <b>We can do the same !</b>
+  </Text>
+</Appear>
+
+---
+
+<Title>The plan 🗺</Title>
+
+<Appear>
+  <Text>
+    <b>1.</b> Convert decimal type to a binary representation
+  </Text>
+  <Text>
+    <b>2.</b> Use logic to compute the addition
+  </Text>
+  <Text>
+    <b>3.</b> Convert back to decimal type
+  </Text>
+</Appear>
+
+---
+
+<Title>Binary representation 🤔</Title>
+
+<Appear>
+  <div>
+    <MdxCode className="language-typescript">
+      {[
+        `// we can use Tuple to replesent a binary value`,
+        `type Bit = 0 | 1;`,
+        `type Byte = [Bit, Bit, Bit, Bit];`,
+      ].join('\n')}
+    </MdxCode>
+  </div>
+</Appear>
+
+---
+
+<Title>Binary addition</Title>
+
+<Appear>
+  <Image src={require('./images/binary-add.jpg')} />
+  <Text>We need: </Text>
+  <Text>1. The Sum</Text>
+  <Text>2. The carry</Text>
+</Appear>
+
+---
+
+<Title>Sum & Carry with Logic</Title>
+
+<Appear>
+  <Image src={require('./images/full_adder.jpg')} />
+</Appear>
+
+---
+
+<CodeSurfer
+  title={() => <Title>Logic gates</Title>}
+  code={require('!raw-loader!./code-samples/logic-gates.ts')}
+  lang="typescript"
+  showNumbers={false}
+  dark={true}
+  steps={[{}, { range: [3, 6] }, { range: [8, 12] }, { range: [13, 19] }]}
+/>
+
+---
+
+<CodeSurfer
+  title={() => <Title>Sum & Carry</Title>}
+  code={require('!raw-loader!./code-samples/sum-carry.ts')}
+  lang="typescript"
+  showNumbers={false}
+  dark={true}
+  steps={[{}, { range: [4, 8] }, { range: [10, 14] }]}
+/>
+
+---
+
+<CodeSurfer
+  title={() => <Title>Binary Adder</Title>}
+  code={require('!raw-loader!./code-samples/binary-adder.ts')}
+  lang="typescript"
+  showNumbers={false}
+  dark={true}
+  steps={[{}, { lines: [18] }, { lines: [16] }, { lines: [14] }, { lines: [12] }]}
+/>
+
+---
+
+<Title>Yay \o/</Title>
+
+<Image src={require('./images/result-bin.png')} />
+
+---
+
+<CodeSurfer
+  title={() => <Title>Convert to binary</Title>}
+  code={require('!raw-loader!./code-samples/to-bin.ts')}
+  lang="typescript"
+  showNumbers={false}
+  dark={true}
+  steps={[{}]}
+/>
+
+---
+
+<CodeSurfer
+  title={() => <Title>Don't write borring stuff !</Title>}
+  code={require('!raw-loader!./code-samples/borring.ts')}
+  lang="typescript"
+  showNumbers={false}
+  dark={true}
+  steps={[{}]}
+/>
+
+---
+
+<CodeSurfer
+  title={() => <Title>Convert to decimal 🤯</Title>}
+  code={require('!raw-loader!./code-samples/to-deci.ts')}
+  lang="typescript"
+  showNumbers={false}
+  dark={true}
+  steps={[{}]}
+/>
+
+---
+
+<CodeSurfer
+  title={() => <Title>Puttin everything together</Title>}
+  code={require('!raw-loader!./code-samples/final.ts')}
+  lang="typescript"
+  showNumbers={false}
+  dark={true}
+  steps={[{}]}
+/>
+
+---
+
+<Title>Yay \o/</Title>
+
+<Image src={require('./images/result-deci.png')} />
+
+---
+
+<CodeSurfer
+  title={() => <Title>Full code</Title>}
+  code={require('!raw-loader!./code-samples/full-four.ts')}
+  lang="typescript"
+  showNumbers={false}
+  dark={true}
+  steps={[{}]}
+/>
+
+---
+
+<Title>Now let's scale up to 8 bit !</Title>
+
+---
+
+<CodeSurfer
+  code={require('!raw-loader!./code-samples/full-eight.ts')}
+  lang="typescript"
+  showNumbers={true}
+  dark={true}
+  steps={[
+    {},
+    { range: [21, 39] },
+    { lines: [42] },
+    { range: [45, 54] },
+    { range: [56, 68] },
+    { range: [70, 72] },
+    { range: [75, 85] },
+    { range: [87, 94] },
+    { range: [97, 122] },
+    { range: [124, 126] },
+    { lines: [130], notes: '130 lines !' },
+  ]}
+/>
+
+---
+
 <div style={{ position: 'relative' }}>
-  <Title>That's it, thanks</Title>
+  <Title>Is this useful ? 🤔</Title>
   <Appear>
+    <SubTitle>Nope ¯\_(ツ)_/¯</SubTitle>
     <SubTitle>Questions ?</SubTitle>
     <div style={{ position: 'absolute', width: '80vw', transform: 'translate(-50%, 10vh) scale(0.8)', left: '50%' }}>
       <Text>

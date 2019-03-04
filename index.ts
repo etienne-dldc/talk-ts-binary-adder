@@ -79,9 +79,8 @@ type ToDecimal<T extends Byte | 'overflow'> = T extends 'overflow'
 type And<A extends Bit, B extends Bit> = B extends 1 ? (A extends 1 ? 1 : 0) : 0;
 type Or<A extends Bit, B extends Bit> = B extends 0 ? (A extends 0 ? 0 : 1) : 1;
 type Xor<A extends Bit, B extends Bit> = A extends 0 ? (B extends 0 ? 0 : 1) : (B extends 0 ? 1 : 0);
-type Nxor<A extends Bit, B extends Bit> = A extends 0 ? (B extends 0 ? 1 : 0) : (B extends 0 ? 0 : 1);
 
-type Sum<A extends Bit, B extends Bit, C extends Bit> = Nxor<Nxor<A, B>, C>;
+type Sum<A extends Bit, B extends Bit, C extends Bit> = Xor<Xor<A, B>, C>;
 type Carry<A extends Bit, B extends Bit, C extends Bit> = Or<And<C, Xor<A, B>>, And<A, B>>;
 
 // prettier-ignore
