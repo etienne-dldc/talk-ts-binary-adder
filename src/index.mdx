@@ -35,6 +35,10 @@ import PrezLink, { HttpsPart } from './components/PrezLink';
 
 ---
 
+<Title>A Binary adder written with TypeScript types only</Title>
+
+---
+
 <Title>Binary what ?</Title>
 
 <Appear>
@@ -66,8 +70,8 @@ import PrezLink, { HttpsPart } from './components/PrezLink';
       {[
         `// ... TypeScript too`,
         `type Num = 3;`,
-        `let tree: Num = 3; // ok`,
-        `tree = 4;`,
+        `let three: Num = 3; // ok`,
+        `three = 4;`,
         `// ^ Type '4' is not assignable to type '3' - ts(2322)`,
       ].join('\n')}
     </MdxCode>
@@ -243,7 +247,7 @@ import PrezLink, { HttpsPart } from './components/PrezLink';
   lang="typescript"
   showNumbers={false}
   dark={true}
-  steps={[{}, { lines: [18] }, { lines: [16] }, { lines: [14] }, { lines: [12] }]}
+  steps={[{}, { lines: [18] }, { lines: [16] }, { lines: [14] }, { lines: [12] }, { lines: [20] }]}
 />
 
 ---
@@ -288,7 +292,7 @@ import PrezLink, { HttpsPart } from './components/PrezLink';
 ---
 
 <CodeSurfer
-  title={() => <Title>Puttin everything together</Title>}
+  title={() => <Title>Mixing everything together</Title>}
   code={require('!raw-loader!./code-samples/final.ts')}
   lang="typescript"
   showNumbers={false}
