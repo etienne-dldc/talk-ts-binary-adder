@@ -18,6 +18,7 @@ if (global.window) {
   loader.add(require('./images/full_adder.jpg'));
   loader.add(require('./images/result-bin.png'));
   loader.add(require('./images/result-deci.png'));
+  loader.add(require('./images/result-eight.png'));
 
   loader.load();
 }
