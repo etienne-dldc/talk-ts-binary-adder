@@ -203,10 +203,16 @@ import PrezLink, { HttpsPart } from './components/PrezLink';
 <Title>Binary addition</Title>
 
 <Appear>
-  <Image src={require('./images/binary-add.jpg')} />
-  <Text>We need: </Text>
-  <Text>1. The Sum</Text>
-  <Text>2. The carry</Text>
+  <div>
+    <Image src={require('./images/binary-add.jpg')} />
+  </div>
+  <Text>For each column we take</Text>
+  <Text>1. The digit from the first number</Text>
+  <Text>1. The digit from the second number</Text>
+  <Text>2. The carry from the previous column</Text>
+  <Text>...and we compute: </Text>
+  <Text>1. The sum </Text>
+  <Text>2. The carry of the next column</Text>
 </Appear>
 
 ---
