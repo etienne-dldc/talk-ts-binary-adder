@@ -1,5 +1,5 @@
 import { Byte } from "./types";
-import { Decimal, ToBinary } from "./to-bin";
+import { Decimal, ToBinary } from "./05-to-bin";
 
 type DecimalMap = {
   [K in Decimal]: {

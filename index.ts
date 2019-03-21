@@ -106,7 +106,7 @@ type AddBinary<A extends Byte, B extends Byte> = (
     ])
 )
 
-type Add<A extends Decimal, B extends Decimal> = ToDecimal<AddBinary<ToBinary<A>, ToBinary<B>>>;
+export type Add<A extends Decimal, B extends Decimal> = ToDecimal<AddBinary<ToBinary<A>, ToBinary<B>>>;
 
 // Result has type 162
 // Try to change the values and hover over Result to see its type

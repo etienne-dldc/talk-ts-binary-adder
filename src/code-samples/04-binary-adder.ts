@@ -1,5 +1,5 @@
 import { Byte } from "./types";
-import { Carry, Sum } from "./sum-carry";
+import { Carry, Sum } from "./03-sum-carry";
 
 export type AddBinary<A extends Byte, B extends Byte> = Carry<
   A[0],
