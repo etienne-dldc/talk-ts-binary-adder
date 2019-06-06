@@ -3,7 +3,7 @@ import base from 'mdx-deck/themes';
 
 const blue = '#0af';
 
-export default {
+export const theme = {
   ...base,
   font: '"Avenir Next", system-ui, sans-serif',
   colors: {
