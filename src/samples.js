@@ -51,6 +51,4 @@ Object.keys(samples).forEach(key => {
   }
 });
 
-console.log(samples);
-
 export default samples;
