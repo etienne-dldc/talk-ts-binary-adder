@@ -8,6 +8,13 @@ export const Text = styled.p({
   margin: '0.5em',
 });
 
+export const TextSmall = styled.p({
+  fontSize: '1em',
+  fontWeight: 300,
+  letterSpacing: '0.05em',
+  margin: '0.5em',
+});
+
 export const Button = styled.button(
   {
     fontSize: '1.2em',

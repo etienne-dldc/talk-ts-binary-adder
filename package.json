@@ -17,6 +17,7 @@
   "devDependencies": {
     "typescript": "^3.5.1"
   },
+  "prettier": {},
   "dependencies": {
     "file-loader": "^4.0.0",
     "mdx-deck": "^1.10.0",
