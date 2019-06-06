@@ -19,6 +19,8 @@ copy(JSON.stringify(splitted));
 console.log('copied to clipboard')
 */
 
+// SLIDE_CONTENT_START
+
 // prettier-ignore
 type DecimalTree = [
   [[[[[[[0, 1], [2, 3]], [[4, 5], [6, 7]]], [[[8, 9], [10, 11]], [[12, 13], [14, 15]]]], [[[[16, 17],

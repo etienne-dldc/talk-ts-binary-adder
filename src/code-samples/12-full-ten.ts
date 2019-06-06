@@ -86,6 +86,6 @@ export type Add<A extends Decimal, B extends Decimal> = ToDecimal<
   AddBinary<ToBinary<A>, ToBinary<B>>
 >;
 
-// Result has type 162
+// Result has type 871
 // Try to change the values and hover over Result to see its type
 type Result = Add<553, 318>;

@@ -14,17 +14,19 @@
   "keywords": [],
   "author": "Etienne Dldc <e.deladonchamps@gmail.com>",
   "license": "MIT",
-  "devDependencies": {},
+  "devDependencies": {
+    "typescript": "^3.5.1"
+  },
   "dependencies": {
     "file-loader": "^4.0.0",
     "mdx-deck": "^1.10.0",
     "mdx-deck-code-surfer": "^0.5.5",
     "preloader": "^4.0.3",
     "prop-types": "^15.7.2",
-    "raw-loader": "^1.0.0",
+    "raw-loader": "^3.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-components": "^4.3.0",
-    "url-loader": "^1.1.2"
+    "url-loader": "^2.0.0"
   }
 }

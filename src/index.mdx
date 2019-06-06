@@ -9,6 +9,8 @@ import CodeSurfer from './components/CodeSurfer';
 import { Text, Title, SubTitle, Code, Link, Button } from './components/Typo';
 // import Arrow from './components/Arrow';
 import PrezLink, { HttpsPart } from './components/PrezLink';
+import samples from './samples.js';
+import images from './images.js';
 
 <Head>
   <title>Binary Adder in Typescript - TypeScript Paris - Etienne Dldc</title>
@@ -118,7 +120,7 @@ import PrezLink, { HttpsPart } from './components/PrezLink';
 
 <CodeSurfer
   title={() => <Title>First try: Brut-force 💪</Title>}
-  code={require('!raw-loader!./code-samples/01-brut-force.ts')}
+  code={samples.brutForce}
   lang="typescript"
   showNumbers={false}
   dark={true}
@@ -129,7 +131,7 @@ import PrezLink, { HttpsPart } from './components/PrezLink';
 
 <Title>Yay \o/</Title>
 
-<Image src={require('./images/brut-force.png')} />
+<Image src={images.brutForce} />
 
 ---
 
@@ -204,12 +206,12 @@ import PrezLink, { HttpsPart } from './components/PrezLink';
 
 <Appear>
   <div>
-    <Image src={require('./images/binary-add.jpg')} />
+    <Image src={images.binaryAdd} />
   </div>
   <Text>For each column we take</Text>
   <Text>1. The digit from the first number</Text>
-  <Text>1. The digit from the second number</Text>
-  <Text>2. The carry from the previous column</Text>
+  <Text>2. The digit from the second number</Text>
+  <Text>3. The carry from the previous column</Text>
   <Text>...and we compute: </Text>
   <Text>1. The sum </Text>
   <Text>2. The carry of the next column</Text>
@@ -221,7 +223,7 @@ import PrezLink, { HttpsPart } from './components/PrezLink';
 
 <Appear>
   <div>
-    <Image src={require('./images/full_adder.jpg')} />
+    <Image src={images.fullAdder} />
   </div>
 </Appear>
 
@@ -229,7 +231,7 @@ import PrezLink, { HttpsPart } from './components/PrezLink';
 
 <CodeSurfer
   title={() => <Title>Logic gates</Title>}
-  code={require('!raw-loader!./code-samples/02-logic-gates.ts')}
+  code={samples.logicGates}
   lang="typescript"
   showNumbers={false}
   dark={true}
@@ -240,7 +242,7 @@ import PrezLink, { HttpsPart } from './components/PrezLink';
 
 <CodeSurfer
   title={() => <Title>Sum & Carry</Title>}
-  code={require('!raw-loader!./code-samples/03-sum-carry.ts')}
+  code={samples.sumCarry}
   lang="typescript"
   showNumbers={false}
   dark={true}
@@ -251,7 +253,7 @@ import PrezLink, { HttpsPart } from './components/PrezLink';
 
 <CodeSurfer
   title={() => <Title>Binary Adder</Title>}
-  code={require('!raw-loader!./code-samples/04-binary-adder.ts')}
+  code={samples.binaryAdder}
   lang="typescript"
   showNumbers={false}
   dark={true}
@@ -262,13 +264,13 @@ import PrezLink, { HttpsPart } from './components/PrezLink';
 
 <Title>Yay \o/</Title>
 
-<Image src={require('./images/result-bin.png')} />
+<Image src={images.resultBin} />
 
 ---
 
 <CodeSurfer
   title={() => <Title>Convert to binary</Title>}
-  code={require('!raw-loader!./code-samples/05-to-bin.ts')}
+  code={samples.toBin}
   lang="typescript"
   showNumbers={false}
   dark={true}
@@ -285,7 +287,7 @@ import PrezLink, { HttpsPart } from './components/PrezLink';
 
 <CodeSurfer
   title={() => <Title>Don't write borring stuff !</Title>}
-  code={require('!raw-loader!./code-samples/06-borring.ts')}
+  code={samples.borring}
   lang="typescript"
   showNumbers={false}
   dark={true}
@@ -295,8 +297,8 @@ import PrezLink, { HttpsPart } from './components/PrezLink';
 ---
 
 <CodeSurfer
-  title={() => <Title>Convert to decimal 🤯</Title>}
-  code={require('!raw-loader!./code-samples/07-to-deci.ts')}
+  title={() => <Title>Convert to decimal 🙃</Title>}
+  code={samples.toDeci}
   lang="typescript"
   showNumbers={false}
   dark={true}
@@ -307,7 +309,7 @@ import PrezLink, { HttpsPart } from './components/PrezLink';
 
 <CodeSurfer
   title={() => <Title>Mixing everything together</Title>}
-  code={require('!raw-loader!./code-samples/08-final.ts')}
+  code={samples.final}
   lang="typescript"
   showNumbers={false}
   dark={true}
@@ -318,13 +320,13 @@ import PrezLink, { HttpsPart } from './components/PrezLink';
 
 <Title>Yay \o/</Title>
 
-<Image src={require('./images/result-deci.png')} />
+<Image src={images.resultDeci} />
 
 ---
 
 <CodeSurfer
   title={() => <Title>Full code</Title>}
-  code={require('!raw-loader!./code-samples/09-full-four.ts')}
+  code={samples.fullFour}
   lang="typescript"
   showNumbers={false}
   dark={true}
@@ -338,22 +340,22 @@ import PrezLink, { HttpsPart } from './components/PrezLink';
 ---
 
 <CodeSurfer
-  code={require('!raw-loader!./code-samples/10-full-eight.ts')}
+  code={samples.fullEight}
   lang="typescript"
   showNumbers={true}
   dark={true}
   steps={[
     {},
-    { range: [21, 39] },
-    { lines: [42] },
-    { range: [45, 54] },
-    { range: [56, 68] },
-    { range: [70, 72] },
-    { range: [75, 85] },
-    { range: [87, 94] },
-    { range: [97, 122] },
-    { range: [124, 126] },
-    { lines: [130], notes: '130 lines !' },
+    { range: [3, 21] },
+    { lines: [24] },
+    { range: [27, 36] },
+    { range: [38, 40] },
+    { range: [42, 44] },
+    { range: [46, 50] },
+    { range: [52, 53] },
+    { range: [56, 81] },
+    { range: [83, 85] },
+    { lines: [89], notes: '90 lines !' },
   ]}
 />
 
@@ -361,7 +363,32 @@ import PrezLink, { HttpsPart } from './components/PrezLink';
 
 <Title>Yay \o/</Title>
 
-<Image src={require('./images/result-eight.png')} />
+<Image src={images.resultEight} />
+
+---
+
+<Title>Can we do better ?</Title>
+
+<Appear>
+  <Text>Yes ! 10 bit 🤩</Text>
+  <div>
+    <Image src={images.resultTen} />
+  </div>
+  <Text>takes ~3s to compute the type ⏳</Text>
+</Appear>
+
+---
+
+<Title>11 bit ?</Title>
+
+<Appear>
+  <Text>Yep 🤯</Text>
+  <div>
+    <Image src={images.resultEleven} />
+  </div>
+  <Text>More than 30s to compute types 🥵</Text>
+  <Text>Only works with TS 3.3 😬</Text>
+</Appear>
 
 ---
 

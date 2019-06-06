@@ -16,32 +16,9 @@ type ToBinary<T extends Decimal> = [
   T extends DecimalTree[any][any][any][0] ? 0 : 1
 ];
 
-type DecimalMap = {
-  [K in Decimal]: {
-    k1: ToBinary<K>[0];
-    k2: ToBinary<K>[1];
-    k3: ToBinary<K>[2];
-    k4: ToBinary<K>[3];
-    decimal: K;
-  }
-};
-
-type DecimalMapFiltered<T extends Byte | "overflow"> = T extends "overflow"
-  ? "overflow"
-  : ({
-      [K in keyof DecimalMap]: DecimalMap[K] extends {
-        k1: T[0];
-        k2: T[1];
-        k3: T[2];
-        k4: T[3];
-      }
-        ? DecimalMap[K]["decimal"]
-        : never
-    });
-
-type ToDecimal<T extends Byte | "overflow"> = T extends "overflow"
-  ? "overflow"
-  : (DecimalMapFiltered<T>[keyof DecimalMapFiltered<T>]);
+export type ToDecimal<T extends Byte | "overflow"> = ({
+  [K in Decimal]: ToBinary<K> extends T ? K : never
+})[Decimal];
 
 type And<A extends Bit, B extends Bit> = B extends 1 ? (A extends 1 ? 1 : 0) : 0;
 

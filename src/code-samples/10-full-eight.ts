@@ -17,6 +17,8 @@ const splitted = split(result);
 console.log(JSON.stringify(splitted))
 */
 
+// SLIDE_CONTENT_START
+
 // prettier-ignore
 type DecimalTree = [
   [[[[[[[0, 1], [2, 3]], [[4, 5], [6, 7]]], [[[8, 9], [10, 11]], [[12, 13], [14, 15]]]], [[[[16, 17],
@@ -53,36 +55,13 @@ type ToBinary<T extends Decimal> = [
   T extends DecimalTree[any][any][any][any][any][any][any][0] ? 0 : 1
 ]
 
-type DecimalMap = {
-  [K in Decimal]: {
-    k1: ToBinary<K>[0];
-    k2: ToBinary<K>[1];
-    k3: ToBinary<K>[2];
-    k4: ToBinary<K>[3];
-    k5: ToBinary<K>[4];
-    k6: ToBinary<K>[5];
-    k7: ToBinary<K>[6];
-    k8: ToBinary<K>[7];
-    decimal: K;
-  }
-};
-
 type Bit = 0 | 1;
 
 type Byte = [Bit, Bit, Bit, Bit, Bit, Bit, Bit, Bit];
 
-// prettier-ignore
-type DecimalMapFiltered<T extends Byte | "overflow"> = T extends "overflow"
-  ? "overflow"
-  : ({
-      [K in keyof DecimalMap]: DecimalMap[K] extends {
-        k1: T[0]; k2: T[1]; k3: T[2]; k4: T[3]; k5: T[4]; k6: T[5]; k7: T[6]; k8: T[7];
-      } ? DecimalMap[K]["decimal"] : never
-    });
-
-type ToDecimal<T extends Byte | "overflow"> = T extends "overflow"
-  ? "overflow"
-  : (DecimalMapFiltered<T>[keyof DecimalMapFiltered<T>]);
+export type ToDecimal<T extends Byte | "overflow"> = ({
+  [K in Decimal]: ToBinary<K> extends T ? K : never
+})[Decimal];
 
 type And<A extends Bit, B extends Bit> = B extends 1 ? (A extends 1 ? 1 : 0) : 0;
 type Or<A extends Bit, B extends Bit> = B extends 0 ? (A extends 0 ? 0 : 1) : 1;
