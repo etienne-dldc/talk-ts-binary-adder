@@ -1,10 +1,4 @@
 /*
- * This is a 8 bit add function made only with Type
- * It's completly useless but kind of cool if you ask me
- * ¯\_(ツ)_/¯
- */
-
-/*
 const range = num => Array(num).fill(null).map((v, i) => i);
 const split = arr => {
   if (arr.length === 2) {
