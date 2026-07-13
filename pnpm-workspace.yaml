@@ -1,0 +1,6 @@
+allowBuilds:
+  core-js: true
+  core-js-pure: true
+  fsevents: true
+  puppeteer: true
+  styled-components: true

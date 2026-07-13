@@ -1,0 +1,9 @@
+:80 {
+  root * /srv
+
+  # Serve existing files first, fallback to index for clean URLs.
+  try_files {path} {path}/index.html /index.html
+
+  encode zstd gzip
+  file_server
+}
