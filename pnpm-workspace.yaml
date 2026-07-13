@@ -4,3 +4,5 @@ allowBuilds:
   fsevents: true
   puppeteer: true
   styled-components: true
+
+nodeLinker: hoisted
